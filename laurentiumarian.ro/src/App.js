@@ -1,9 +1,10 @@
 import './App.css';
+import intro from './components/intro';
 
 function App() {
   return (
-    <div className="App bg-black">
-      test
+    <div className="App">
+      {intro()}
     </div>
   );
 }
