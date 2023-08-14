@@ -24,17 +24,45 @@ export default function Intro() {
   return (
     <section
       id="intro"
-      className={`bg-black w-screen h-screen text-white ${
-        loadingVisible ? "" : "hidden"
-      }`}
+      className={`
+      absolute
+      flex 
+      items-center 
+      justify-center 
+      flex-col
+      bg-black 
+      w-full 
+      h-full 
+      text-white 
+      z-20
+      ${loadingVisible ? "" : "hidden"}`}
     >
-      <div className="flex items-center justify-center flex-col h-full">
-        <h1 className="lg:text-7xl md:text-5xl sm:text-3xl text-xl font-black">
-          Laurentiu Marian
-        </h1>
-        <div className="w-9/12 lg:h-5 md:h-3 h-2 mt-1">
-          <div className="loading bg-white rounded-full w-full h-full"></div>
-        </div>
+      <h1
+        className="
+        lg:text-7xl 
+        md:text-5xl 
+        sm:text-3xl 
+        text-xl 
+        font-black"
+      >
+        Laurentiu Marian
+      </h1>
+      <div
+        className="
+        w-9/12 
+        lg:h-5 
+        md:h-3 
+        h-2 
+        mt-1"
+      >
+        <div
+          className="
+          loading 
+          bg-white 
+          rounded-full 
+          w-full 
+          h-full"
+        ></div>
       </div>
     </section>
   );
