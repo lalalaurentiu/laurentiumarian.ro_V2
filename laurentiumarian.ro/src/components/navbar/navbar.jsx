@@ -2,8 +2,29 @@ import React from "react";
 import Battery from "./battery";
 import Wifi from "./wifi";
 import DateTime from "./dateTime";
+import Element from "./element";
 
 export default function Navbar() {
+  const elements = [
+    {
+      alt: "Search",
+      url: "/images/General/SVG/Search.svg",
+    },
+    {
+      alt: "Control Center",
+      url: "/images/General/SVG/ControlCenter.svg",
+    },
+    {
+      alt: "Siri",
+      url: "/images/General/Siri.png",
+    },
+  ]
+
+  const elements_obj = elements.map((element) => {
+    return (
+      <Element key={element.alt} alt={element.alt} url={element.url} />
+    )
+  })
   return (
     <nav
       className="
@@ -65,6 +86,7 @@ export default function Navbar() {
                 lg:justify-end
                 flex-row-reverse
                 lg:flex-row
+                space-x-2
         "
         >
           <div
@@ -78,6 +100,7 @@ export default function Navbar() {
             <Battery />
             <Wifi />
           </div>
+          {elements_obj}
           <DateTime />
         </div>
       </div>
