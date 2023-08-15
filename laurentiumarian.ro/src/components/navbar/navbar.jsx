@@ -5,27 +5,25 @@ import DateTime from "./dateTime";
 import Element from "./element";
 import DynamicIsland from "./dynamicIsland";
 
-export default function Navbar() {
-  const elements = [
-    {
-      alt: "Search",
-      url: "/images/General/SVG/Search.svg",
-    },
-    {
-      alt: "Control Center",
-      url: "/images/General/SVG/ControlCenter.svg",
-    },
-    {
-      alt: "Siri",
-      url: "/images/General/Siri.png",
-    },
-  ]
+const elements = [
+  {
+    alt: "Search",
+    url: "/images/General/SVG/Search.svg",
+  },
+  {
+    alt: "Control Center",
+    url: "/images/General/SVG/ControlCenter.svg",
+  },
+  {
+    alt: "Siri",
+    url: "/images/General/Siri.png",
+  },
+];
 
+export default function Navbar() {
   const elements_obj = elements.map((element) => {
-    return (
-      <Element key={element.alt} alt={element.alt} url={element.url} />
-    )
-  })
+    return <Element key={element.alt} alt={element.alt} url={element.url} />;
+  });
   return (
     <nav
       className="
@@ -98,11 +96,13 @@ export default function Navbar() {
                 justify-end
           "
           >
-            <div className="
-            flex
+            <div
+              className="
+              flex
               flex-grow
               justify-center
-            ">
+            "
+            >
               <DynamicIsland />
             </div>
             <Battery />

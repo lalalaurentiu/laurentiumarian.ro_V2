@@ -28,7 +28,6 @@ export default function App(props) {
             flex-col
             items-center
             justify-end
-           
         "
     >
       <img
