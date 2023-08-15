@@ -34,8 +34,8 @@ export default function App(props) {
       <img
         className="
                 flex-grow
-                w-12
-                h-12
+                w-20
+                h-20
                 lg:w-16
                 lg:h-16
             "
