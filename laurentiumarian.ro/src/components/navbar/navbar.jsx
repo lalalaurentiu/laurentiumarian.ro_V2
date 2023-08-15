@@ -3,6 +3,7 @@ import Battery from "./battery";
 import Wifi from "./wifi";
 import DateTime from "./dateTime";
 import Element from "./element";
+import DynamicIsland from "./dynamicIsland";
 
 export default function Navbar() {
   const elements = [
@@ -97,6 +98,13 @@ export default function Navbar() {
                 justify-end
           "
           >
+            <div className="
+            flex
+              flex-grow
+              justify-center
+            ">
+              <DynamicIsland />
+            </div>
             <Battery />
             <Wifi />
           </div>
