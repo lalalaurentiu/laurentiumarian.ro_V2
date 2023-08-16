@@ -7,10 +7,10 @@ import DynamicIsland from "./dynamicIsland";
 import Notification from "../notifications";
 
 const notification = {
-  url:'/images/General/SVG/close.svg',
-  alt:'something',
-  content:'Your message has been sent successfully'
-}
+  url: "/images/General/SVG/close.svg",
+  alt: "something",
+  content: "Your message has been sent successfully",
+};
 
 const elements = [
   {
@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <div className="relative">
       <nav
-      className="
+        className="
         relative
         flex 
         w-screen 
@@ -42,9 +42,9 @@ export default function Navbar() {
         text-white 
         relative
         "
-    >
-      <div
-        className="
+      >
+        <div
+          className="
             absolute 
             h-full 
             w-full 
@@ -52,9 +52,9 @@ export default function Navbar() {
             lg:backdrop-blur-lg
             lg:bg-black/20
             "
-      ></div>
-      <div
-        className="
+        ></div>
+        <div
+          className="
             flex 
             items-center
             justify-between 
@@ -63,9 +63,9 @@ export default function Navbar() {
             lg:px-8 
             z-10
             "
-      >
-        <div
-          className="
+        >
+          <div
+            className="
                 hidden
                 lg:flex 
                 items-center
@@ -73,54 +73,66 @@ export default function Navbar() {
                 lg:text-base
                 font-black
                 "
-        >
-          <img
-            src="/images/General/logo.png"
-            alt="logo"
-            className="
+          >
+            <img
+              src="/images/General/logo.png"
+              alt="logo"
+              className="
                     h-6
                     "
-          />
-          <button>About</button>
-          <button>Contact</button>
-          <button>Portofolio</button>
-        </div>
-        <div
-          className="
+            />
+            <button>About</button>
+            <button>Contact</button>
+            <button>Portofolio</button>
+          </div>
+          <div
+            className="
                 flex
                 flex-grow
                 items-center
                 lg:justify-end
                 flex-row-reverse
                 lg:flex-row
+                lg:space-x-2
         "
-        >
-          <div
-            className="
+          >
+            <div
+              className="
                 flex
                 items-center
                 flex-grow
                 justify-end
+                space-x-2
+                mr-2
+                lg:mr-0
           "
-          >
-            <div
-              className="
+            >
+              <div
+                className="
               flex
               flex-grow
               justify-center
             "
-            >
-              <DynamicIsland url={notification.url} alt={notification.alt} content={notification.content}/>
+              >
+                <DynamicIsland
+                  url={notification.url}
+                  alt={notification.alt}
+                  content={notification.content}
+                />
+              </div>
+              <Battery />
+              <Wifi />
             </div>
-            <Battery />
-            <Wifi />
+            {elements_obj}
+            <DateTime />
           </div>
-          {elements_obj}
-          <DateTime />
         </div>
-      </div>
-    </nav>
-    <Notification url={notification.url} alt={notification.alt} content={notification.content}/>
+      </nav>
+      <Notification
+        url={notification.url}
+        alt={notification.alt}
+        content={notification.content}
+      />
     </div>
   );
 }

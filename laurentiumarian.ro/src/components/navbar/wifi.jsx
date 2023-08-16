@@ -29,7 +29,13 @@ export default function Wifi() {
   }, []);
 
   return (
-    <div>
+    <div className="
+      w-[20px]
+      flex
+      flex-col
+      justify-center
+      items-center
+    ">
       <div className="wifi">
         <div className="wifi-cell wifi-line3" ref={wifiCell1}></div>
         <div className="wifi-cell wifi-line2" ref={wifiCell2}></div>
