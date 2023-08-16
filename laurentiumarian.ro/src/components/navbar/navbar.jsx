@@ -4,6 +4,13 @@ import Wifi from "./wifi";
 import DateTime from "./dateTime";
 import Element from "./element";
 import DynamicIsland from "./dynamicIsland";
+import Notification from "../notifications";
+
+const notification = {
+  url:'/images/General/SVG/close.svg',
+  alt:'something',
+  content:'Your message has been sent successfully'
+}
 
 const elements = [
   {
@@ -25,8 +32,10 @@ export default function Navbar() {
     return <Element key={element.alt} alt={element.alt} url={element.url} />;
   });
   return (
-    <nav
+    <div className="relative">
+      <nav
       className="
+        relative
         flex 
         w-screen 
         h-8 
@@ -103,7 +112,7 @@ export default function Navbar() {
               justify-center
             "
             >
-              <DynamicIsland />
+              <DynamicIsland url={notification.url} alt={notification.alt} content={notification.content}/>
             </div>
             <Battery />
             <Wifi />
@@ -113,5 +122,7 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+    <Notification url={notification.url} alt={notification.alt} content={notification.content}/>
+    </div>
   );
 }

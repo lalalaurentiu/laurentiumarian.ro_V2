@@ -15,10 +15,10 @@ const apps = [
     type: "App",
     src: "/images/General/logo.png",
   },
-    {
+  {
     name: "sda",
     type: "folder",
-    },
+  },
 ];
 
 export default function Body() {
@@ -29,6 +29,11 @@ export default function Body() {
   return (
     <div
       className="
+            flex-grow
+        "
+    >
+      <div
+        className="
             grid
             grid-cols-4
             gap-4
@@ -38,8 +43,9 @@ export default function Body() {
             lg:gap-2
             mt-4
         "
-    >
-      {apps_elements}
+      >
+        {apps_elements}
+      </div>
     </div>
   );
 }
