@@ -40,10 +40,10 @@ export default function DateTime() {
     const hours12 = hours % 12;
     const hours12string = hours12 ? hours12 : 12;
     const minutesstring = minutes < 10 ? "0" + minutes : minutes;
-    const time = `${hours12string}:${minutesstring} ${ampm}`;
+    const time = `${hours12string}:${minutesstring}`;
     const datestring = `${dayofmonth} ${month}`;
 
-    return [day, datestring, time];
+    return [day, datestring, time, ampm];
   }
 
   React.useEffect(() => {
@@ -76,7 +76,11 @@ export default function DateTime() {
             <div>{dateTime[0]}</div>
             <div>{dateTime[1]}</div>
         </div>
-        <div>{dateTime[2]}</div>
+        <div>{dateTime[2]} </div>
+        <div className="
+        hidden
+        lg:flex
+        ">{dateTime[3]}</div>
       </div>
       <div
         className="subsection-left"

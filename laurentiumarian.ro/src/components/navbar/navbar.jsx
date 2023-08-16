@@ -60,7 +60,6 @@ export default function Navbar() {
             justify-between 
             w-full 
             h-full 
-            px-2
             lg:px-8 
             z-10
             "
@@ -94,7 +93,6 @@ export default function Navbar() {
                 lg:justify-end
                 flex-row-reverse
                 lg:flex-row
-                space-x-2
         "
         >
           <div
