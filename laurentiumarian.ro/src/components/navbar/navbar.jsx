@@ -35,6 +35,7 @@ export default function Navbar() {
     <div className="relative">
       <nav
         className="
+        z-30
         relative
         flex 
         w-screen 

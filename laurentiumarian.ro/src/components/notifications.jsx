@@ -46,6 +46,7 @@ export default function Notification(props) {
             lg:right-0
             lg:m-2
             lg:w-1/4
+            z-30
         "
     >
       <button
