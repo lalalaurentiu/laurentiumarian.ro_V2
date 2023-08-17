@@ -48,6 +48,7 @@ export default function Footer() {
             items-center
             h-14
             mb-5
+            z-30
         "
     >
       <div className="
