@@ -5,6 +5,8 @@ import DateTime from "./dateTime";
 import Element from "./element";
 import DynamicIsland from "./dynamicIsland";
 import Notification from "../notifications";
+import LeftElement from "./leftElement";
+import App from "./navApp"
 
 const notification = {
   url: "/images/General/SVG/close.svg",
@@ -27,10 +29,58 @@ const elements = [
   },
 ];
 
+const bodyElements = [
+  {
+    name: "Folder",
+    type: "folder",
+  },
+  {
+    name: "File",
+    type: "file",
+  },
+  {
+    name: "App",
+    type: "App",
+    src: "/images/General/logo.png",
+  },
+  {
+    name: "sda",
+    type: "folder",
+  },
+];
+
+const leftElements = [
+  {
+    name: "About",
+    apps: [
+      ...bodyElements.map((element) => { return <App key={element.name} name={element.name} type={element.type} src={element.src} /> }),
+
+    ],
+  },
+  { 
+    name: "Contact",
+    apps: [
+      ...elements.map((element) => { return <Element key={element.alt} alt={element.alt} url={element.url} /> }),
+    ],
+  },
+  {
+    name: "Portofolio",
+    apps: [
+      ...elements.map((element) => { return <Element key={element.alt} alt={element.alt} url={element.url} /> }),
+    ],
+  },
+];
+
 export default function Navbar() {
+  
   const elements_obj = elements.map((element) => {
     return <Element key={element.alt} alt={element.alt} url={element.url} />;
   });
+
+  const leftElements_obj = leftElements.map((element) => {
+    return <LeftElement key={element.name} name={element.name} apps={element.apps}/>;
+  });
+  
   return (
     <div className="relative">
       <nav
@@ -41,7 +91,6 @@ export default function Navbar() {
         w-screen 
         h-8 
         text-white 
-        relative
         "
       >
         <div
@@ -82,9 +131,10 @@ export default function Navbar() {
                     h-6
                     "
             />
-            <button>About</button>
+            {/* <button>About</button>
             <button>Contact</button>
-            <button>Portofolio</button>
+            <button>Portofolio</button> */}
+            {leftElements_obj}
           </div>
           <div
             className="
