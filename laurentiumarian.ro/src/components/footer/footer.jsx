@@ -15,7 +15,7 @@ const apps = [
   {
     alt: "Phone",
     src: "/images/General/SVG/Phone.svg",
-    className: "",
+    className: "lg:hidden block",
   },
   {
     alt: "Mail",
@@ -27,6 +27,11 @@ const apps = [
     src: "/images/General/SVG/Settings.svg",
     className: "",
   },
+  {
+    alt: "Dashboard",
+    src: "/images/General/Dashboard.webp",
+    className: "lg:block hidden",
+  }
 ];
 
 export default function Footer() {
