@@ -49,127 +49,33 @@ const bodyElements = [
   },
 ];
 
-const leftElements = [
-  {
-    name: "About",
-    apps: [
-      ...bodyElements.map((element) => { return <App key={element.name} name={element.name} type={element.type} src={element.src} /> }),
-
-    ],
-  },
-  { 
-    name: "Contact",
-    apps: [
-      ...elements.map((element) => { return <Element key={element.alt} alt={element.alt} url={element.url} /> }),
-    ],
-  },
-  {
-    name: "Portofolio",
-    apps: [
-      ...elements.map((element) => { return <Element key={element.alt} alt={element.alt} url={element.url} /> }),
-    ],
-  },
-];
-
-export default function Navbar() {
+export default function Navbar(props) {
   
   const elements_obj = elements.map((element) => {
     return <Element key={element.alt} alt={element.alt} url={element.url} />;
   });
 
-  const leftElements_obj = leftElements.map((element) => {
-    return <LeftElement key={element.name} name={element.name} apps={element.apps}/>;
+  const leftElements_obj = props.map((element) => {
+    return <LeftElement key={element.name} name={element.name} apps={
+      element.apps.map((app) => {
+        return <App key={app.name} name={app.name} type={app.type} src={app.img} />;
+      })
+    }/>;
   });
   
   return (
     <div className="relative">
-      <nav
-        className="
-        z-30
-        relative
-        flex 
-        w-screen 
-        h-8 
-        text-white 
-        "
-      >
-        <div
-          className="
-            absolute 
-            h-full 
-            w-full 
-            lg:backdrop-filter
-            lg:backdrop-blur-lg
-            lg:bg-black/20
-            "
-        ></div>
-        <div
-          className="
-            flex 
-            items-center
-            justify-between 
-            w-full 
-            h-full 
-            lg:px-8 
-            z-10
-            "
-        >
-          <div
-            className="
-                hidden
-                lg:flex 
-                items-center
-                lg:space-x-4
-                lg:text-base
-                font-black
-                "
-          >
-            <img
-              src="/images/General/logo.png"
-              alt="logo"
-              className="
-                    h-6
-                    "
-            />
-            {/* <button>About</button>
-            <button>Contact</button>
-            <button>Portofolio</button> */}
+      <nav className="z-30 relative flex w-screen h-8 text-white">
+        <div className="absolute h-full w-full lg:backdrop-filter lg:backdrop-blur-lg lg:bg-black/20"></div>
+        <div className="flex items-center justify-between w-full h-full lg:px-8 z-10">
+          <div className="hidden lg:flex items-center lg:space-x-4 lg:text-base font-black">
+            <img src="/images/General/logo.png" alt="logo" className="h-6"/>
             {leftElements_obj}
           </div>
-          <div
-            className="
-                flex
-                flex-grow
-                items-center
-                lg:justify-end
-                flex-row-reverse
-                lg:flex-row
-                lg:space-x-2
-        "
-          >
-            <div
-              className="
-                flex
-                items-center
-                flex-grow
-                justify-end
-                space-x-2
-                mr-2
-                lg:mr-0
-          "
-            >
-              <div
-                className="
-              flex
-              flex-grow
-              justify-center
-            "
-              >
-                <DynamicIsland
-                  url={notification.url}
-                  alt={notification.alt}
-                  content={notification.content}
-                />
+          <div className="flex flex-grow items-center lg:justify-end flex-row-reverse lg:flex-row lg:space-x-2">
+            <div className="flex items-center flex-grow justify-end space-x-2 mr-2 lg:mr-0">
+              <div className="flex flex-grow justify-center">
+                <DynamicIsland url={notification.url} alt={notification.alt} content={notification.content}/>
               </div>
               <Battery />
               <Wifi />
@@ -179,11 +85,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <Notification
-        url={notification.url}
-        alt={notification.alt}
-        content={notification.content}
-      />
+      <Notification url={notification.url} alt={notification.alt} content={notification.content}/>
     </div>
   );
 }

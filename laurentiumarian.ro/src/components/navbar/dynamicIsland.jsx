@@ -23,35 +23,8 @@ export default function DynamicIsland(props) {
   }, []);
 
   return (
-    <div
-      ref={parent}
-      className="
-            relative
-            w-2/4
-            h-[20px]
-            bg-black
-            rounded-full
-            md:hidden
-            transition-all
-            duration-1000
-        "
-    >
-      <div
-        ref={child}
-        className="
-                hidden
-                w-full
-                h-full
-                text-white
-                flex
-                items-center
-                justify-start
-                gap-2
-                text-xs
-                truncate
-                px-2
-            "
-      >
+    <div ref={parent} className="relative w-2/4 h-[20px] bg-black rounded-full md:hidden transition-all duration-1000">
+      <div ref={child} className="hidden w-full h-full text-white flex items-center justify-start gap-2 text-xs truncate px-2">
         <img src={props.url} alt={props.alt} className="h-2 w-2" />
         <p>{props.content}</p>
       </div>

@@ -27,23 +27,8 @@ export default function Body() {
   });
 
   return (
-    <div
-      className="
-            flex-grow
-        "
-    >
-      <div
-        className="
-            grid
-            grid-cols-4
-            gap-4
-            md:grid-cols-6
-            lg:flex
-            lg:flex-wrap
-            lg:gap-2
-            mt-4
-        "
-      >
+    <div className="flex-grow">
+      <div className="grid grid-cols-4 gap-4 md:grid-cols-6 lg:flex lg:flex-wrap lg:gap-2 mt-4">
         {apps_elements}
       </div>
     </div>

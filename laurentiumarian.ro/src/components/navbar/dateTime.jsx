@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const abreviatemonths = {
   0: "Jan",
@@ -25,9 +25,8 @@ const abreviatedays = {
 };
 
 export default function DateTime() {
-  const { show, onClick, subsections } = useState(false);
   const child = React.useRef(null);
-  const [dateTime, setDateTime] = useState(getDateTimes());
+  const [dateTime, setDateTime] = React.useState(getDateTimes());
 
   function getDateTimes() {
     const date = new Date();
@@ -54,39 +53,14 @@ export default function DateTime() {
   }, []);
 
   return (
-    <div onClick={onClick} className="nav-date-time" ref={child}>
-      <div
-        className="
-    flex
-    items-center
-    justify-center
-    space-x-2
-    text-sm
-    "
-      >
-        <div
-          className="
-        hidden
-        lg:flex
-        items-center
-        justify-center
-        space-x-2
-        "
-        >
+    <div className="nav-date-time" ref={child}>
+      <div className="flex items-center justify-center space-x-2 text-sm">
+        <div className="hidden lg:flex items-center justify-center space-x-2">
             <div>{dateTime[0]}</div>
             <div>{dateTime[1]}</div>
         </div>
         <div>{dateTime[2]} </div>
-        <div className="
-        hidden
-        lg:flex
-        ">{dateTime[3]}</div>
-      </div>
-      <div
-        className="subsection-left"
-        style={show ? { display: "flex" } : { display: "none" }}
-      >
-        {subsections}
+        <div className="hidden lg:flex">{dateTime[3]}</div>
       </div>
     </div>
   );

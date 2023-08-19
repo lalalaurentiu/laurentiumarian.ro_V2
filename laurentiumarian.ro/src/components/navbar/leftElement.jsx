@@ -20,51 +20,13 @@ export default function LeftElement(props) {
 
   return (
     <div>
-      <button
-        className="relative"
-        onClick={() => {
-          setOpenIndex(!openIndex);
-        }}
-      >
+      <button className="relative" onClick={() => {setOpenIndex(!openIndex);}}>
         {name}
       </button>
 
-      <div
-        ref={ref}
-        className={`
-                absolute
-                top-full
-                z-30
-                flex-col
-                h-fit
-                w-max
-                rounded-md
-                border-[0.5px]
-                border-white/50
-                ${openIndex ? "flex" : "hidden"}
-            `}
-      >
-        <div
-          className="
-                    absolute
-                    w-full
-                    h-full
-                    backdrop-filter
-                    backdrop-blur-lg
-                    rounded-md
-                    bg-black/20
-                "
-        ></div>
-        <div
-          className="
-                    flex
-                    flex-col
-                    justify-start
-                    z-10
-                    space-y-2
-                    p-2
-                "
-        >
+      <div ref={ref} className={`absolute top-full z-30 flex-col h-fit w-max rounded-md border-[0.5px] border-white/50 ${openIndex ? "flex" : "hidden"}`}>
+        <div className="absolute w-full h-full backdrop-filter backdrop-blur-lg rounded-md bg-black/20"></div>
+        <div className="flex flex-col justify-start z-10 space-y-2 p-2">
           {app}
         </div>
       </div>

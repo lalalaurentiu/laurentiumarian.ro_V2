@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Wifi() {
   const wifiCell1 = React.useRef(null);
   const wifiCell2 = React.useRef(null);
   const wifiCell3 = React.useRef(null);
 
-  const { show, onClick, subsections } = useState(false);
+  const { show, onClick, subsections } = React.useState(false);
 
   let rondomNumber = Math.floor(Math.random() * 3) + 1;
 
@@ -29,22 +29,13 @@ export default function Wifi() {
   }, []);
 
   return (
-    <div className="
-      w-[20px]
-      flex
-      flex-col
-      justify-center
-      items-center
-    ">
+    <div className="w-[20px] flex flex-col justify-center items-center">
       <div className="wifi">
         <div className="wifi-cell wifi-line3" ref={wifiCell1}></div>
         <div className="wifi-cell wifi-line2" ref={wifiCell2}></div>
         <div className="wifi-cell wifi-line1" ref={wifiCell3}></div>
       </div>
-      <div
-        className="subsection-left"
-        style={show ? { display: "flex", transform:"translateX(calc(-100% + 30px))" } : { display: "none" }}
-      >
+      <div className="subsection-left" style={show ? { display: "flex", transform:"translateX(calc(-100% + 30px))" } : { display: "none" }}>
         {subsections}
       </div>
     </div>

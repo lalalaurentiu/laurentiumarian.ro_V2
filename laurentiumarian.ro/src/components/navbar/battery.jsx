@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Battery() {
-    const { show, onClick, subsections } = useState(false);
     const [batteryLevel, setBatteryLevel] = React.useState(100);
   
     React.useEffect(() => {
@@ -21,14 +20,7 @@ export default function Battery() {
           <div className="battery-charging">
             <div className="battery-level" style={batteryLevelStyle}></div>
           </div>
-  
           <div className="battery-cell"></div>
-        </div>
-        <div
-          className="subsection-left"
-          style={show ? { display: "flex" } : { display: "none" }}
-        >
-          {subsections}
         </div>
       </div>
     );
