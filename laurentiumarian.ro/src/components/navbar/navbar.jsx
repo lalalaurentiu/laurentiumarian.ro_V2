@@ -58,14 +58,14 @@ export default function Navbar(props) {
   const leftElements_obj = props.map((element) => {
     return <LeftElement key={element.name} name={element.name} apps={
       element.apps.map((app) => {
-        return <App key={app.name} name={app.name} type={app.type} src={app.img} />;
+        return <App key={app.name} name={app.name} type={app.type} src={app.img} content={app.content} />;
       })
     }/>;
   });
   
   return (
     <div className="relative">
-      <nav className="z-30 relative flex w-screen h-8 text-white">
+      <nav className="z-40 relative flex w-screen h-8 text-white">
         <div className="absolute h-full w-full lg:backdrop-filter lg:backdrop-blur-lg lg:bg-black/20"></div>
         <div className="flex items-center justify-between w-full h-full lg:px-8 z-10">
           <div className="hidden lg:flex items-center lg:space-x-4 lg:text-base font-black">

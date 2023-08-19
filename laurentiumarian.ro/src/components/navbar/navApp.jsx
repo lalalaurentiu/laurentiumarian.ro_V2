@@ -1,4 +1,6 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import File from "../fileApp";
 
 export default function App(props) {
   let appType = {
@@ -7,10 +9,19 @@ export default function App(props) {
       },
       File: {
         src: "/images/General/SVG/file.svg",
+        app: (name, content, btnRef) => {
+          const component = <File name={name} content={content} openBtn={btnRef}/>;
+
+          return ReactDOM.createPortal(
+            component,
+           document.body
+          );
+        },
       },
     };
   
   const [src, setSrc] = React.useState(props);
+  const btnRef = React.useRef();
 
   React.useEffect(() => {
     if (props.type === "App") {
@@ -21,9 +32,13 @@ export default function App(props) {
   }, [props]);
 
   return (
-    <div className="cursor-pointer flex justify-between items-center space-x-6">
+    <>
+    <button ref={btnRef} 
+     className="cursor-pointer flex justify-between items-center space-x-6">
       <img className="h-6" src={src} alt={props.name}/>
       <p className="text-center text-xs text-white font-bold">{props.name}</p>
-    </div>
+    </button>
+    {appType[props.type].app(props.name, props.content, btnRef)}
+    </>
   );
 }

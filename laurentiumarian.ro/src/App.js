@@ -6,7 +6,7 @@ import Body from "./components/body/body";
 import Footer from "./components/footer/footer";
 
 function App() {
-  const url = 'http://127.0.0.1:8000/api/';
+  const url = 'http://192.168.0.156:8000/api/';
   const [data, setData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true); // Adăugăm un starea pentru încărcare
 
