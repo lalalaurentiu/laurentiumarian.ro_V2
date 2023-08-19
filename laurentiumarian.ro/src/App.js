@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App bg-[url('../public/images/Mobile/Wallpapers/Wallpaper_mobile.webp')] md:bg-[url('../public/images/Tablet/Wallpapers/Wallpaper_tablet.webp')] lg:bg-[url('../public/images/Desktop/Wallpapers/Wallpaper.webp')] overflow-x-hidden bg-cover w-screen h-screen flex flex-col">
+    <div className="App bg-[url('../public/images/Mobile/Wallpapers/Wallpaper_mobile.webp')] md:bg-[url('../public/images/Tablet/Wallpapers/Wallpaper_tablet.webp')] lg:bg-[url('../public/images/Desktop/Wallpapers/Wallpaper.webp')] overflow-x-hidden bg-cover w-full h-full flex flex-col">
       {intro()}
 
       {/* Aici verificăm dacă datele sunt încărcate */}
