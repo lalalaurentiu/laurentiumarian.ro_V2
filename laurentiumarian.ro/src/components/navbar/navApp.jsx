@@ -26,6 +26,7 @@ export default function App(props) {
   React.useEffect(() => {
     if (props.type === "App") {
       setSrc(props.src);
+
     } else {
       setSrc(appType[props.type].src);
     }
@@ -38,7 +39,7 @@ export default function App(props) {
       <img className="h-6" src={src} alt={props.name}/>
       <p className="text-center text-xs text-white font-bold">{props.name}</p>
     </button>
-    {appType[props.type].app(props.name, props.content, btnRef)}
+    {appType[props.type] ? appType[props.type].app(props.name, props.content, btnRef) : props.func(props.name, props.content, btnRef)}
     </>
   );
 }

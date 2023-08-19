@@ -7,6 +7,9 @@ import DynamicIsland from "./dynamicIsland";
 import Notification from "../notifications";
 import LeftElement from "./leftElement";
 import App from "./navApp"
+import ReactDOM from "react-dom";
+import File from "../fileApp";
+import Mail from "../mail";
 
 const notification = {
   url: "/images/General/SVG/close.svg",
@@ -62,6 +65,28 @@ export default function Navbar(props) {
       })
     }/>;
   });
+
+  leftElements_obj.push(<LeftElement key="Contact" name="Contact" apps={[
+    <App key={"Mail"} name={"Mail"} type={"App"} src={"/images/General/SVG/Mail.svg"} content={""} func={
+      (name, content, btnRef) => {
+        const component = <Mail openBtn={btnRef}/>;
+
+        return ReactDOM.createPortal(
+          component,
+         document.body
+        );
+      }
+    } />,
+    <App key={"Phone"} name={"Phone"} type={"App"} src={"/images/General/SVG/Phone.svg"} content={""} func={
+      (name, content, btnRef) => {
+        if (btnRef.current) {
+          btnRef.current.addEventListener("click", () => {
+            window.location.href = "tel:+40721234567";
+          });
+        }
+      }
+    } />,
+  ]} />);
   
   return (
     <div className="relative">
