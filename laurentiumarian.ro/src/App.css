@@ -58,7 +58,7 @@ html {
   transform: translateX(100%);
   width: 4px;
   height: 5px;
-  border-right: 1px solid rgba(138, 138, 138, 0.3);
+  border-right: 1px solid rgba(255, 253, 253, 0.3);
   border-radius: 50%;
 }
 

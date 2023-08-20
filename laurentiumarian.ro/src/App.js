@@ -15,11 +15,11 @@ function App() {
       .then(response => response.json())
       .then(data => {
         setData(data);
-        setIsLoading(false); // Marcam că datele au fost încărcate
+        setIsLoading(false); 
       })
       .catch(error => {
         console.error(error);
-        setIsLoading(false); // Marcam că s-a încheiat încărcarea, chiar dacă a fost o eroare
+        setIsLoading(false); 
       });
   }, []);
 
@@ -27,17 +27,15 @@ function App() {
     <div className="App bg-[url('../public/images/Mobile/Wallpapers/Wallpaper_mobile.webp')] md:bg-[url('../public/images/Tablet/Wallpapers/Wallpaper_tablet.webp')] lg:bg-[url('../public/images/Desktop/Wallpapers/Wallpaper.webp')] overflow-x-hidden bg-cover w-full h-full flex flex-col">
       {intro()}
 
-      {/* Aici verificăm dacă datele sunt încărcate */}
       {isLoading ? (
         <p>
           Loading...
-        </p> // Afișăm un mesaj de încărcare
+        </p>
       ) : (
-        // Datele sunt încărcate, putem afișa componentele
         <>
           {Navbar(data[0].NavApps)}
           {Body()}
-          {Footer()}
+          {Footer(data[0].LaunchPad)}
         </>
       )}
     </div>
