@@ -1,7 +1,8 @@
 import React from "react";
+import App from "./launchpadApp";
 
 export default function Launchpad(props) {
-    const [app, setApp] = React.useState(props.app);
+    const [apps, setApps] = React.useState([]);
     const [openIndex, setOpenIndex] = React.useState(false);
     const close = React.useRef();
 
@@ -14,7 +15,7 @@ export default function Launchpad(props) {
   }
 
     React.useEffect(() => {
-        setApp(props.app);
+        setApps(props.apps);
     }, [props]);
 
     if (close.current){
@@ -25,7 +26,7 @@ export default function Launchpad(props) {
     }
     
     return (
-        <button ref={close}
+        <div ref={close}
          className={`${
             openIndex ? "absolute" : "hidden"
         } z-40 top-0 flex flex-col h-full w-full bg-[url('../public/images/Desktop/Wallpapers/Wallpaper.webp')] bg-cover`}>
@@ -33,9 +34,15 @@ export default function Launchpad(props) {
             <div className="flex items-center justify-center z-10 mt-5 w-full">
                 <input className="w-1/4 rounded-md bg-gray-700/50 text-center text-white " type="text" placeholder="Search" />
             </div>
-            <div className="grid grid-cols-7 gap-4 mt-10 mx-10 z-10 w-full">
-                {app}
+            <div className="grid grid-cols-7 gap-4 mt-10 z-10 w-full 
+              px-10
+            ">
+                {
+                    apps.map((app) => {
+                        return <App key={app.name} name={app.name} src={app.img} href={app.content} />;
+                    })
+                }
             </div>
-        </button>
+        </div>
     );
 };
