@@ -32,14 +32,22 @@ export default function App(props) {
     }
   }, [props]);
 
-  return (
-    <>
-    <button ref={btnRef} 
-     className="cursor-pointer flex justify-between items-center space-x-6">
-      <img className="h-6" src={src} alt={props.name}/>
-      <p className="text-center text-xs text-white font-bold">{props.name}</p>
-    </button>
-    {appType[props.type] ? appType[props.type].app(props.name, props.content, btnRef) : props.func(props.name, props.content, btnRef)}
-    </>
-  );
+  if (props.type === "App") {
+    return (
+      <a href={props.content} className="cursor-pointer flex justify-between items-center space-x-6">
+        <img className="h-6 rounded-md" src={src} alt={props.name}/>
+        <p className="text-center text-xs text-white font-bold">{props.name}</p>
+      </a>
+    );
+  } else {
+    return (
+      <>
+      <button ref={btnRef} className="cursor-pointer flex justify-between items-center space-x-6">
+        <img className="h-6" src={src} alt={props.name}/>
+        <p className="text-center text-xs text-white font-bold">{props.name}</p>
+      </button>
+      {appType[props.type] ? appType[props.type].app(props.name, props.content, btnRef) : props.func(props.name, props.content, btnRef)}
+      </>
+    );
+  }
 }
