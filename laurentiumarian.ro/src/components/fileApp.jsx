@@ -3,11 +3,21 @@ import React from "react";
 export default function File(props) {
 
   const [openIndex, setOpenIndex] = React.useState(false);
+  const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
 
-  if (props.openBtn.current) {
-    props.openBtn.current.addEventListener("click", () => {
-      setOpenIndex(!openIndex);
-    });
+  const handleClick = () => {
+    setOpenIndex(!openIndex);
+  };
+
+  React.useEffect(() => {
+    const btn = props.openBtn.current.addEventListener("click", handleClick, false);
+    setBtnRef(btn);
+  }, [props]);
+
+  if (btnRef) {
+    btnRef.replaceWith(
+      btnRef.cloneNode(true)
+    )
   }
 
   return (

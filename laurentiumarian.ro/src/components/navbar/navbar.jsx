@@ -8,7 +8,6 @@ import Notification from "../notifications";
 import LeftElement from "./leftElement";
 import App from "./navApp"
 import ReactDOM from "react-dom";
-import File from "../fileApp";
 import Mail from "../mail";
 
 const notification = {
@@ -29,26 +28,6 @@ const elements = [
   {
     alt: "Siri",
     url: "/images/General/Siri.png",
-  },
-];
-
-const bodyElements = [
-  {
-    name: "Folder",
-    type: "folder",
-  },
-  {
-    name: "File",
-    type: "file",
-  },
-  {
-    name: "App",
-    type: "App",
-    src: "/images/General/logo.png",
-  },
-  {
-    name: "sda",
-    type: "folder",
   },
 ];
 
@@ -81,7 +60,7 @@ export default function Navbar(props) {
       (name, content, btnRef) => {
         if (btnRef.current) {
           btnRef.current.addEventListener("click", () => {
-            window.location.href = "tel:+40721234567";
+            window.location.href = "tel:+40790570919";
           });
         }
       }

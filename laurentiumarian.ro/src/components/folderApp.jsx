@@ -3,10 +3,27 @@ import React from "react";
 export default function FolderApp(props) {
 
   const [openIndex, setOpenIndex] = React.useState(false);
+  const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
+  const close = React.useRef();
 
-  if (props.openBtn.current) {
-    props.openBtn.current.addEventListener("click", () => {
-      setOpenIndex(!openIndex);
+  const handleClick = () => {
+    setOpenIndex(!openIndex);
+};
+
+  React.useEffect(() => {
+    const btn = props.openBtn.current.addEventListener("click", handleClick, false);
+    setBtnRef(btn);
+  }, [props]);
+
+  if (btnRef) {
+    btnRef.replaceWith(
+      btnRef.cloneNode(true)
+    )
+  }
+
+  if (close.current){
+    close.current.addEventListener("click", () => {
+      setOpenIndex(false);
     });
   }
 
@@ -17,11 +34,7 @@ export default function FolderApp(props) {
       {/* Left side */}
       <div className="hidden relative lg:flex flex-col border-r-2 border-black p-2 w-[250px]">
         <div className="flex flex-row m-2">
-          <button onClick={
-            () => {
-              setOpenIndex(!openIndex);
-            }
-          } className="w-4 h-4 rounded-full bg-red-500 mr-1"></button>
+          <button ref={close} className="w-4 h-4 rounded-full bg-red-500 mr-1"></button>
           <button className="w-4 h-4 rounded-full bg-yellow-500 mr-1"></button>
           <button className="w-4 h-4 rounded-full bg-green-500 mr-1"></button>
         </div>
