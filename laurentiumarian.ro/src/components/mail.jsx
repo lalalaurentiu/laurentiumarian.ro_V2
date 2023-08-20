@@ -50,6 +50,7 @@ export default function Mail(props) {
       </div>
 
       <div className="hidden lg:flex justify-between items-center p-4 bg-[#242424] rounded-br-lg rounded-bl-lg border-t-[0.5px] border-gray-600 bg-[#3F3837]"></div>
+      <button onClick={() => {setOpenIndex(!openIndex);}} className="absolute bottom-0 left-2/4 transform -translate-x-2/4 -translate-y-1/2 w-2/4 h-2 rounded-lg bg-white mb-2 lg:hidden"></button>
     </div>
   );
 }

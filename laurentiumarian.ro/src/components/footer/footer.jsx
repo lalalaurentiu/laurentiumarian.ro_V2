@@ -1,11 +1,21 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import FooterApp from "./footerapp";
+import FolderApp from "../folderApp";
 
 const apps = [
   {
     alt: "Finder",
     src: "/images/General/SVG/Finder.svg",
     className: "lg:block hidden",
+    func: (name, src, btnRef) => {
+      const component = <FolderApp name={name} src={src} openBtn={btnRef}/>;
+
+      return ReactDOM.createPortal(
+        component,
+       document.body
+      );
+    }
   },
   {
     alt: "Launchpad",
@@ -36,7 +46,7 @@ const apps = [
 
 export default function Footer() {
   const appsList = apps.map((app) => (
-    <FooterApp key={app.alt} alt={app.alt} src={app.src} className={app.className}/>
+    <FooterApp key={app.alt} alt={app.alt} src={app.src} className={app.className} func={app.func}/>
   ));
 
   return (

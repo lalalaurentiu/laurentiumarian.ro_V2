@@ -1,14 +1,29 @@
 import React from "react";
 
-export default function FolderApp() {
+export default function FolderApp(props) {
+
+  const [openIndex, setOpenIndex] = React.useState(false);
+
+  if (props.openBtn.current) {
+    props.openBtn.current.addEventListener("click", () => {
+      setOpenIndex(!openIndex);
+    });
+  }
+
   return (
-    <div className="flex absolute w-full h-full top-0 z-20 lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:bg-[#584024]/50 lg:w-3/4 lg:h-fit lg:rounded-lg lg:border-[0.5px] lg:border-gray-400">
+    <div className={`${
+      openIndex ? "flex" : "hidden"
+    } absolute w-full h-full top-0 z-30 lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:bg-[#584024]/90 lg:w-3/4 lg:h-3/4 lg:rounded-lg lg:border-[0.5px] lg:border-gray-400`}>
       {/* Left side */}
-      <div className="hidden lg:flex flex-col border-r-2 border-black p-2 w-[250px]">
+      <div className="hidden relative lg:flex flex-col border-r-2 border-black p-2 w-[250px]">
         <div className="flex flex-row m-2">
-          <div className="w-4 h-4 rounded-full bg-red-500 mr-1"></div>
-          <div className="w-4 h-4 rounded-full bg-yellow-500 mr-1"></div>
-          <div className="w-4 h-4 rounded-full bg-green-500 mr-1"></div>
+          <button onClick={
+            () => {
+              setOpenIndex(!openIndex);
+            }
+          } className="w-4 h-4 rounded-full bg-red-500 mr-1"></button>
+          <button className="w-4 h-4 rounded-full bg-yellow-500 mr-1"></button>
+          <button className="w-4 h-4 rounded-full bg-green-500 mr-1"></button>
         </div>
         <div className="flex flex-col">
           <div className="text-gray-400 text-xs font-bold">Favourites</div>
@@ -63,7 +78,7 @@ export default function FolderApp() {
           <div className="flex items-center">
             <img className="w-5 h-5" src="/images/General/SVG/chevron-left.svg" alt="Back"/>
             <img className="w-5 h-5" src="/images/General/SVG/chevron-right.svg" alt="Forward"/>
-            <div className="text-white text-sm font-bold ml-2">Folder</div>
+            <div className="text-white text-sm font-bold ml-2">{props.name}</div>
           </div>
         </div>
         <div className="flex-grow bg-[#242424]"></div>
@@ -75,12 +90,13 @@ export default function FolderApp() {
             </div>
             <img className="w-5 h-5" src="/images/General/SVG/angle-right.svg" alt="angle-right"/>
             <div className="flex items-center gap-1">
-              <img className="w-5 h-5" src="/images/General/SVG/folder.svg" alt="Folder"/>
-              <div className="text-white text-xs">Folder</div>
+              <img className="w-5 h-5" src={props.src} alt="Folder"/>
+              <div className="text-white text-xs">{props.name}</div>
             </div>
           </div>
         </div>
       </div>
+      <button onClick={() => {setOpenIndex(!openIndex);}} className="absolute bottom-0 left-2/4 transform -translate-x-2/4 -translate-y-1/2 w-2/4 h-2 rounded-lg bg-white mb-2 lg:hidden"></button>
     </div>
   );
 }
