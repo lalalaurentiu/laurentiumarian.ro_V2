@@ -13,9 +13,11 @@ export default function LeftElement(props) {
   }, [props]);
 
   document.addEventListener("click", (e) => {
+    try {
     if (e.target.parentNode.childNodes[1] !== ref.current) {
       setOpenIndex(false);
     }
+    } catch (e) {}
   });
 
   return (

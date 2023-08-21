@@ -6,15 +6,7 @@ import Element from "./element";
 import DynamicIsland from "./dynamicIsland";
 import Notification from "../notifications";
 import LeftElement from "./leftElement";
-import App from "./navApp"
-import ReactDOM from "react-dom";
-import Mail from "../mail";
-
-const notification = {
-  url: "/images/General/SVG/close.svg",
-  alt: "something",
-  content: "Your message has been sent successfully",
-};
+import App from "./navApp";
 
 const elements = [
   {
@@ -32,12 +24,17 @@ const elements = [
 ];
 
 export default function Navbar(props) {
-  
+  const [data , setData] = React.useState(props.data);
+
+  React.useEffect(() => {
+    setData(props.data);
+  }, [props]);
+
   const elements_obj = elements.map((element) => {
     return <Element key={element.alt} alt={element.alt} url={element.url} />;
   });
 
-  const leftElements_obj = props.map((element) => {
+  const leftElements_obj = data.map((element) => {
     return <LeftElement key={element.name} name={element.name} apps={
       element.apps.map((app) => {
         return <App key={app.name} name={app.name} type={app.type} src={app.img} content={app.content} />;
@@ -46,27 +43,29 @@ export default function Navbar(props) {
   });
 
   leftElements_obj.push(<LeftElement key="Contact" name="Contact" apps={[
-    <App key={"Mail"} name={"Mail"} type={"App"} src={"/images/General/SVG/Mail.svg"} content={""} func={
-      (name, content, btnRef) => {
-        const component = <Mail openBtn={btnRef}/>;
-
-        return ReactDOM.createPortal(
-          component,
-         document.body
-        );
-      }
-    } />,
-    <App key={"Phone"} name={"Phone"} type={"App"} src={"/images/General/SVG/Phone.svg"} content={""} func={
-      (name, content, btnRef) => {
-        if (btnRef.current) {
-          btnRef.current.addEventListener("click", () => {
-            window.location.href = "tel:+40790570919";
-          });
-        }
-      }
-    } />,
+    <App key={"NavMail"} name={"Mail"} type={"Mail"} />,
+    <App key={"NavPhone"} name={"Phone"} type={"Phone"} />,
   ]} />);
-  
+
+  const [index, setndex] = React.useState(0);
+
+  React.useEffect(() => {
+    setndex(0);
+  }, []);
+
+  const [notification, setNotification] = React.useState(props.notifications);
+
+  React.useEffect(() => {
+    if (index < props.notifications.length) {
+      setNotification(
+        props.notifications
+      );
+      
+    } else {
+      setNotification(null);
+    }
+  }, [index]);
+
   return (
     <div className="relative">
       <nav className="z-40 relative flex w-screen h-8 text-white">
@@ -79,7 +78,10 @@ export default function Navbar(props) {
           <div className="flex flex-grow items-center lg:justify-end flex-row-reverse lg:flex-row lg:space-x-2">
             <div className="flex items-center flex-grow justify-end space-x-2 mr-2 lg:mr-0">
               <div className="flex flex-grow justify-center">
-                <DynamicIsland url={notification.url} alt={notification.alt} content={notification.content}/>
+                {
+                 index < props.notifications.length ? <DynamicIsland key={index + 1} url={notification[index].img} alt={notification[index].name} content={notification[index].content}/> : 
+                 <DynamicIsland url={"/images/General/logo.png"} alt={"logo"} content={"Welcome!"}/>
+                }
               </div>
               <Battery />
               <Wifi />
@@ -89,7 +91,26 @@ export default function Navbar(props) {
           </div>
         </div>
       </nav>
-      <Notification url={notification.url} alt={notification.alt} content={notification.content}/>
+      <div className={`${
+        index < props.notifications.length ? "absolute" : "hidden"
+      } w-full h-[100px] z-40`}
+       onClick={
+          () => {
+            setndex(index + 1);
+          }
+        } onTouchEnd={
+          () => {
+            setTimeout(() => {
+              setndex(index + 1);
+            }, 1000);
+          }
+        }>
+        {
+          index < props.notifications.length
+          ? <Notification key={index} url={notification[index].img} alt={notification[index].name} content={notification[index].content}/>
+           : null
+        }
+        </div>
     </div>
   );
 }

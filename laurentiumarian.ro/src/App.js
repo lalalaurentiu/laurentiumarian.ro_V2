@@ -33,7 +33,7 @@ function App() {
         </p>
       ) : (
         <>
-          {Navbar(data[0].NavApps)}
+          <Navbar data={data[0].NavApps} notifications={data[0].Notifications} />
           {Body(data)}
           {Footer(data[0].LaunchPad)}
         </>
