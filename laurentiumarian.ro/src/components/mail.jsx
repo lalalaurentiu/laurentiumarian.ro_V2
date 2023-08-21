@@ -22,7 +22,7 @@ export default function Mail(props) {
   return (
     <div className={`${
       openIndex ? "flex" : "hidden"
-    } flex-col absolute w-screen h-screen top-0 z-30 bg-[#242424] lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:w-3/4 lg:h-3/4 lg:rounded-lg lg:border-[0.5px] lg:border-gray-400`}>
+    } flex-col absolute w-full h-full top-0 z-30 bg-[#242424] lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:w-3/4 lg:h-3/4 lg:rounded-lg lg:border-[0.5px] lg:border-gray-400`}>
       <div className="hidden lg:flex justify-between items-center bg-[#3F3837] rounded-tr-lg rounded-tl-lg w-full">
         <div className="flex flex-row m-2" >
           <button onClick={
@@ -57,10 +57,11 @@ export default function Mail(props) {
         </div>
 
         <textarea id="message" required placeholder="Your message..." className="flex-grow w-full bg-transparent focus:outline-none text-white text-sm font-bold resize-none p-2 overflow-y-auto"/>
+        <div className="flex flex-col items-center justify-between mt-4">
+          <button onClick={() => {setOpenIndex(!openIndex);}} className="w-2/4 h-2 rounded-lg bg-white mb-2 lg:hidden"></button>
+        </div> 
       </div>
-
-      <div className="hidden lg:flex justify-between items-center p-4 bg-[#242424] rounded-br-lg rounded-bl-lg border-t-[0.5px] border-gray-600 bg-[#3F3837]"></div>
-      <button onClick={() => {setOpenIndex(!openIndex);}} className="absolute bottom-0 left-2/4 transform -translate-x-2/4 -translate-y-1/2 w-2/4 h-2 rounded-lg bg-white mb-2 lg:hidden"></button>
+      <div className="hidden lg:flex justify-between items-center p-4 bg-[#242424] rounded-br-lg rounded-bl-lg border-t-[0.5px] border-gray-600 bg-[#3F3837]"></div> 
     </div>
   );
 }
