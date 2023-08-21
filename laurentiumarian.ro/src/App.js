@@ -34,7 +34,7 @@ function App() {
       ) : (
         <>
           {Navbar(data[0].NavApps)}
-          {Body()}
+          {Body(data)}
           {Footer(data[0].LaunchPad)}
         </>
       )}
