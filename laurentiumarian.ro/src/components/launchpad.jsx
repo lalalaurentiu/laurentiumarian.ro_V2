@@ -24,6 +24,13 @@ export default function Launchpad(props) {
             props.openBtn.current.removeEventListener("click", handleClick);
         });
     }
+
+    const app = apps.map((app) => {
+        return <App key={app.name} name={app.name} src={app.img} type={app.type} href={app.content} />;
+    });
+
+    app.push(<App key="LaunchpadMail" name="Mail" type="Mail" />)
+    app.push(<App key="LaunchpadPhone" name="Phone" type="Phone" />)
     
     return (
         <div ref={close}
@@ -37,11 +44,7 @@ export default function Launchpad(props) {
             <div className="grid grid-cols-7 gap-4 mt-10 z-10 w-full 
               px-10
             ">
-                {
-                    apps.map((app) => {
-                        return <App key={app.name} name={app.name} src={app.img} href={app.content} />;
-                    })
-                }
+                {app}
             </div>
         </div>
     );
