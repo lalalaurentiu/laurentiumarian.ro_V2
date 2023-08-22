@@ -57,7 +57,7 @@ export default function App(props) {
   if (props.type === "App") {
     return (
       <a target="_blank" href={props.content} className="cursor-pointer flex flex-col items-center justify-end">
-        <img className="h-16 w-16 rounded-md" src={src} alt={props.name}/>
+        <img className="h-16 w-16 rounded-lg" src={src} alt={props.name}/>
         <p className="text-center text-xs text-white font-bold">{props.name}</p>
       </a>
     );

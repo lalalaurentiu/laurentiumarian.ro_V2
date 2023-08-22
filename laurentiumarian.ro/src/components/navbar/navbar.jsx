@@ -77,7 +77,7 @@ export default function Navbar(props) {
           </div>
           <div className="flex flex-grow items-center lg:justify-end flex-row-reverse lg:flex-row lg:space-x-2">
             <div className="flex items-center flex-grow justify-end space-x-2 mr-2 lg:mr-0">
-              <div className="flex flex-grow justify-center">
+              <div className="w-[100px] flex flex-grow justify-center">
                 {
                  index < props.notifications.length ? <DynamicIsland key={index + 1} url={notification[index].img} alt={notification[index].name} content={notification[index].content}/> : 
                  <DynamicIsland url={"/images/General/logo.png"} alt={"logo"} content={"Welcome!"}/>
