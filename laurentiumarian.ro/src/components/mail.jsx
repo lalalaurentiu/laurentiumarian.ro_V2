@@ -47,12 +47,12 @@ export default function Mail(props) {
 
       <div className="flex flex-col flex-grow lg:pt-0 overflow-y-auto text-white text-sm font-bold">
         <div className="flex items-center justify-between border-b-[0.5px] border-gray-400 space-x-2 ml-4">
-          <label for={`${props.name}_owner`} className="text-gray-400">To:</label>
+          <label htmlFor={`${props.name}_owner`} className="text-gray-400">To:</label>
           <input id={`${props.name}_owner`} type="text" readOnly value="contact@laurentiumarian.ro" className="w-full h-8 bg-transparent focus:outline-none text-white text-sm font-bold"/>
         </div>
 
         <div className="flex items-center justify-between border-b-[0.5px] border-gray-400 space-x-2 ml-4">
-          <label for={`${props.name}_email`}
+          <label htmlFor={`${props.name}_email`}
            className="text-gray-400">From:</label>
           <input id={`${props.name}_email`} type="email" required placeholder="Your@email.com" className="w-full h-8 bg-transparent focus:outline-none text-white text-sm font-bold"/>
         </div>
