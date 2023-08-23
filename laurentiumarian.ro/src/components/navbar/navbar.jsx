@@ -43,7 +43,7 @@ export default function Navbar(props) {
   });
 
   leftElements_obj.push(<LeftElement key="Contact" name="Contact" apps={[
-    <App key={"NavMail"} name={"Mail"} type={"Mail"} />,
+    <App key={"NavMail"} name={"navbar"} type={"Mail"} />,
     <App key={"NavPhone"} name={"Phone"} type={"Phone"} />,
   ]} />);
 

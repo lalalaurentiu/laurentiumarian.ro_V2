@@ -47,16 +47,17 @@ export default function Mail(props) {
 
       <div className="flex flex-col flex-grow lg:pt-0 overflow-y-auto text-white text-sm font-bold">
         <div className="flex items-center justify-between border-b-[0.5px] border-gray-400 space-x-2 ml-4">
-          <label className="text-gray-400">To:</label>
-          <input type="text" readOnly value="contact@laurentiumarian.ro" className="w-full h-8 bg-transparent focus:outline-none text-white text-sm font-bold"/>
+          <label for={`${props.name}_owner`} className="text-gray-400">To:</label>
+          <input id={`${props.name}_owner`} type="text" readOnly value="contact@laurentiumarian.ro" className="w-full h-8 bg-transparent focus:outline-none text-white text-sm font-bold"/>
         </div>
 
         <div className="flex items-center justify-between border-b-[0.5px] border-gray-400 space-x-2 ml-4">
-          <label className="text-gray-400">From:</label>
-          <input id="email" type="email" required placeholder="Your@email.com" className="w-full h-8 bg-transparent focus:outline-none text-white text-sm font-bold"/>
+          <label for={`${props.name}_email`}
+           className="text-gray-400">From:</label>
+          <input id={`${props.name}_email`} type="email" required placeholder="Your@email.com" className="w-full h-8 bg-transparent focus:outline-none text-white text-sm font-bold"/>
         </div>
 
-        <textarea id="message" required placeholder="Your message..." className="flex-grow w-full bg-transparent focus:outline-none text-white text-sm font-bold resize-none p-2 overflow-y-auto"/>
+        <textarea id={`${props.name}_message`} required placeholder="Your message..." className="flex-grow w-full bg-transparent focus:outline-none text-white text-sm font-bold resize-none p-2 overflow-y-auto"/>
         <div className="flex flex-col items-center justify-between mt-4">
           <button onClick={() => {setOpenIndex(!openIndex);}} className="w-2/4 h-2 rounded-lg bg-white mb-2 lg:hidden"></button>
         </div> 

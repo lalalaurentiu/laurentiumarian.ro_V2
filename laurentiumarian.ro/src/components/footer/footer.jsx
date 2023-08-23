@@ -50,7 +50,7 @@ export default function Footer(props) {
       src: "/images/General/SVG/Mail.svg",
       className: "",
       func:(name, content, btnRef) => {
-        const component = <Mail openBtn={btnRef}/>;
+        const component = <Mail name={"Footer"} openBtn={btnRef}/>;
   
         return ReactDOM.createPortal(
           component,

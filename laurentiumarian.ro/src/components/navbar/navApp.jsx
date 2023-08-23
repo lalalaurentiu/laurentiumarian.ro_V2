@@ -22,7 +22,7 @@ export default function App(props) {
       Mail : {
         src: "/images/General/SVG/Mail.svg",
         app: (name, content, btnRef) => {
-          const component = <Mail openBtn={btnRef}/>;
+          const component = <Mail name={name} openBtn={btnRef}/>;
   
           return ReactDOM.createPortal(
             component,
