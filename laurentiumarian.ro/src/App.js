@@ -35,7 +35,7 @@ function App() {
         <>
           <Navbar data={data[0].NavApps} notifications={data[0].Notifications} />
           {Body(data)}
-          {Footer(data[0].LaunchPad)}
+          <Footer LaunchPad={data[0].LaunchPad} Description={data[0].Description} />
         </>
       )}
     </div>

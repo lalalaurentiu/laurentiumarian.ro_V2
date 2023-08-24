@@ -1,18 +1,26 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 export default function FolderApp(props) {
-
   const [openIndex, setOpenIndex] = React.useState(false);
   const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
   const close = React.useRef();
+
+  const [folder, setFolder] = React.useState(props.app);
+  React.useEffect(() => {
+    setFolder(props.app);
+  }, [props]);
 
   const handleClick = () => {
     setOpenIndex(!openIndex);
 };
 
   React.useEffect(() => {
-    const btn = props.openBtn.current.addEventListener("click", handleClick, false);
+    try {
+      const btn = props.openBtn.current.addEventListener("click", handleClick, false);
     setBtnRef(btn);
+    } catch (error) {}
+    
   }, [props]);
 
   if (btnRef) {
@@ -30,9 +38,11 @@ export default function FolderApp(props) {
   return (
     <div className={`${
       openIndex ? "flex" : "hidden"
-    } absolute w-full h-full top-0 z-30 lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:bg-[#584024]/90 lg:w-3/4 lg:h-3/4 lg:rounded-lg lg:border-[0.5px] lg:border-gray-400`}>
+    } absolute w-full h-full top-0 ${
+      props.className ? props.className : "z-30"
+    } lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:bg-[#584024]/90 lg:w-3/4 lg:h-3/4 lg:rounded-lg lg:border-[0.5px] lg:border-gray-400 text-white`}>
       {/* Left side */}
-      <div className="hidden relative lg:flex flex-col border-r-2 border-black p-2 w-[250px]">
+      <div className="hidden lg:flex flex-col border-r-2 border-black p-2 w-[250px]">
         <div className="flex flex-row m-2">
           <button ref={close} className="w-4 h-4 rounded-full bg-red-500 mr-1"></button>
           <button className="w-4 h-4 rounded-full bg-yellow-500 mr-1"></button>
@@ -94,7 +104,21 @@ export default function FolderApp(props) {
             <div className="text-white text-sm font-bold ml-2">{props.name}</div>
           </div>
         </div>
-        <div className="flex-grow bg-[#242424]"></div>
+        <div className="flex space-x-2 flex-wrap overflow-y-auto overflow-x-hidden p-2 flex-grow bg-[#242424]">
+          {
+            folder ? folder.map((element) => {
+              return element[0]}
+            ) : null
+          }
+          {
+            folder ? folder.map((element) => {
+              return ReactDOM.createPortal(
+                element[1],    
+                document.body
+              )}
+            ) : null
+          }
+        </div>
         <div className="hidden lg:flex justify-between items-center p-2 bg-[#242424] rounded-br-lg border-t-[0.5px] border-gray-600">
           <div className="flex items-center">
             <div className="flex items-center gap-1">

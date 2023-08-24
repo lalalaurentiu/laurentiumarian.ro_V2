@@ -2,17 +2,78 @@ import React from "react";
 import ReactDOM from "react-dom";
 import FooterApp from "./footerapp";
 import FolderApp from "../folderApp";
+import File from "../fileApp";
 import Launchpad from "../launchpad";
 import Mail from "../mail";
 
 export default function Footer(props) {
+  const [descriptionApps, setDescriptionApps] = React.useState(props.Description);
+
+  React.useEffect(() => {
+    setDescriptionApps(props.Description);
+  }, [props]);
+
+
   const apps = [
     {
       alt: "Finder",
       src: "/images/General/SVG/Finder.svg",
       className: "lg:block hidden",
       func: (name, src, btnRef) => {
-        const component = <FolderApp name={name} src={src} openBtn={btnRef}/>;
+        
+        const folder_apps = descriptionApps.map((app, index) => {
+          const btn = React.createRef();
+          const component = (
+            <div key={index} ref={btn} className="
+              flex flex-col items-center gap-1
+            ">
+              <img 
+                className="w-14 h-14 cursor-pointer" 
+                src="/images/General/SVG/folder.svg" 
+                alt="Folder" />
+              <div className="text-[10px] font-bold">{app.name}</div>
+            </div>
+          )
+          
+          const filebtn = React.createRef();
+          const filecomponent = (
+            <div key={index} ref={filebtn} className="
+              flex flex-col items-center gap-1
+            ">
+              <img 
+                className="w-14 h-14 cursor-pointer" 
+                src="/images/General/SVG/file.svg" 
+                alt="File" />
+              <div className="text-[10px] font-bold">{"Description"}</div>
+            </div>
+          )
+
+          const appcomponent =(
+              <a key={`app_${app.name}`} href={app.content} target="_blank" className="flex flex-col items-center gap-1">
+                <img className="w-14 h-14 cursor-pointe rounded-lg" src={app.img} alt={app.name}/>
+                <p className="text-[10px] font-bold">{app.name}</p>
+              </a>
+            )
+
+          const githubcomponent =(
+            <a key={`github_${app.name}`} href={app.code} target="_blank" className="flex flex-col items-center gap-1">
+              <img className="w-14 h-14 cursor-pointe rounded-lg" src={"/images/General/github.png"} alt={"GitHub"}/>
+              <p className="text-[10px] font-bold">{"Code"}</p>
+            </a>
+          )
+          
+          return [component,
+          <FolderApp key={`lauchpadapp_${name}`} app={
+            [
+              [filecomponent, <File key={`file_${name}`} name={"Description"} content={app.description} openBtn={filebtn} className={"z-50"}/>],
+              [appcomponent, null],
+              [githubcomponent, null]
+            ]
+          } name={app.name} src={"/images/General/SVG/folder.svg"} openBtn={btn} className={"z-40"}/>
+        ]
+        }); 
+
+        const component = <FolderApp app={folder_apps} name={name} src={src} openBtn={btnRef}/>;
   
         return ReactDOM.createPortal(
           component,
@@ -25,7 +86,7 @@ export default function Footer(props) {
       src: "/images/General/Launchpad.png",
       className: "lg:block hidden",
       func: (name, src, btnRef) => {
-        const component = <Launchpad apps={props} openBtn={btnRef}/>;
+        const component = <Launchpad apps={props.LaunchPad} openBtn={btnRef}/>;
   
         return ReactDOM.createPortal(
           component,
