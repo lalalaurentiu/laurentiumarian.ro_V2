@@ -22,7 +22,7 @@ export default function Intro() {
   }, []);
 
   return (
-    <section id="intro" className={`absolute flex items-center justify-center flex-col bg-black w-full h-full text-white z-50 ${loadingVisible ? "" : "hidden"}`}>
+    <section id="intro" className={`absolute flex items-center justify-center flex-col bg-black w-full h-full text-white z-[100000] ${loadingVisible ? "" : "hidden"}`}>
       <h1 className="lg:text-7xl md:text-5xl sm:text-3xl text-xl font-black">
         Laurentiu Marian
       </h1>

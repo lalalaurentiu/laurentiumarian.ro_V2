@@ -21,7 +21,9 @@ export default function File(props) {
   }
 
   return (
-    <div className={`flex-col absolute w-full h-full top-0 z-30 lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:w-3/4 lg:h-3/4 lg:rounded-lg lg:border-[0.5px] lg:border-gray-400 ${openIndex ? "flex" : "hidden"}`}>
+    <div className={`flex-col absolute w-full h-full top-0 ${
+      props.className ? props.className : "z-30"
+    } lg:top-2/4 lg:left-2/4 lg:transform lg:-translate-x-2/4 lg:-translate-y-2/4 lg:w-3/4 lg:h-3/4 lg:rounded-lg lg:border-[0.5px] lg:border-gray-400 ${openIndex ? "flex" : "hidden"}`}>
       <div className="hidden lg:flex justify-between items-center bg-[#3F3837] rounded-tr-lg rounded-tl-lg w-full">
         <div className="flex flex-row m-2 bg-[#3F3837]">
           <button onClick={() => {setOpenIndex(!openIndex)}} className="w-4 h-4 rounded-full bg-red-500 mr-1"></button>

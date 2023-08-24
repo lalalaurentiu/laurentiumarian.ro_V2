@@ -68,7 +68,7 @@ export default function Navbar(props) {
 
   return (
     <div className="relative">
-      <nav className="z-40 relative flex w-screen h-8 text-white">
+      <nav className="z-[99999] relative flex w-screen h-8 text-white">
         <div className="absolute h-full w-full lg:backdrop-filter lg:backdrop-blur-lg lg:bg-black/20"></div>
         <div className="flex items-center justify-between w-full h-full lg:px-8 z-10">
           <div className="hidden lg:flex items-center lg:space-x-4 lg:text-base font-black">
@@ -93,7 +93,7 @@ export default function Navbar(props) {
       </nav>
       <div className={`${
         index < props.notifications.length ? "absolute" : "hidden"
-      } w-full h-[100px] z-40`}
+      } w-full h-[100px] z-[99999]`}
        onClick={
           () => {
             setndex(index + 1);
