@@ -36,7 +36,7 @@ export default function Launchpad(props) {
         <div ref={close}
          className={`${
             openIndex ? "absolute" : "hidden"
-        } z-40 top-0 flex flex-col h-full w-full bg-[url('../public/images/Desktop/Wallpapers/Wallpaper.webp')] bg-cover`}>
+        } z-[99999] top-0 flex flex-col h-full w-full bg-[url('../public/images/Desktop/Wallpapers/Wallpaper.webp')] bg-cover`}>
             <div className="absolute w-full h-full backdrop-filter backdrop-blur-lg"></div>
             <div className="flex items-center justify-center z-10 mt-5 w-full">
                 <input id="search" className="w-1/4 rounded-md bg-gray-700/50 text-center text-white " type="text" placeholder="Search" />
