@@ -5,8 +5,8 @@ export default function Body(props) {
 
   const apps = []
 
-  props[0].NavApps.map((app) => {
-    app.apps.map((elem) => {
+  props[0].NavApps.forEach((app) => {
+    app.apps.forEach((elem) => {
       apps.push(elem)
     })
   })

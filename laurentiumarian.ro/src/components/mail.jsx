@@ -1,5 +1,7 @@
 import React from "react";
 
+const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
+
 export default function Mail(props) {
   const [openIndex, setOpenIndex] = React.useState(false);
   const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
@@ -11,7 +13,7 @@ export default function Mail(props) {
   React.useEffect(() => {
     const btn = props.openBtn.current.addEventListener("click", handleClick, false);
     setBtnRef(btn);
-  }, [props]);
+  }, [props, handleClick]);
 
   if (btnRef) {
     btnRef.replaceWith(
@@ -34,14 +36,14 @@ export default function Mail(props) {
           <button className="w-4 h-4 rounded-full bg-green-500 mr-1"></button>
         </div>
         <button className=" flex items-center flex-grow justify-start space-x-1">
-          <img className="w-5 h-5" src="/images/General/SVG/Send.svg" alt="Send"/>
+          <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Send.svg"} alt="Send"/>
         </button>
       </div>
 
       <div className="flex items-center justify-between space-x-2 p-2 lg:hidden text-white text-lg font-bold pt-8">
         <div>New Message</div>
         <button>
-          <img className="w-5 h-5" src="/images/General/SVG/up-arrow.svg" alt="Arrow Up"/>
+          <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/up-arrow.svg"} alt="Arrow Up"/>
         </button>
       </div>
 

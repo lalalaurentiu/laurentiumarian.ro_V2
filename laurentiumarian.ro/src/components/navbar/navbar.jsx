@@ -8,18 +8,20 @@ import Notification from "../notifications";
 import LeftElement from "./leftElement";
 import App from "./navApp";
 
+const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
+
 const elements = [
   {
     alt: "Search",
-    url: "/images/General/SVG/Search.svg",
+    url: publicUrl + "/images/General/SVG/Search.svg",
   },
   {
     alt: "Control Center",
-    url: "/images/General/SVG/ControlCenter.svg",
+    url: publicUrl + "/images/General/SVG/ControlCenter.svg",
   },
   {
     alt: "Siri",
-    url: "/images/General/Siri.png",
+    url: publicUrl + "/images/General/Siri.png",
   },
 ];
 
@@ -64,7 +66,7 @@ export default function Navbar(props) {
     } else {
       setNotification(null);
     }
-  }, [index]);
+  }, [index, props.notifications]);
 
   return (
     <div className="relative">
@@ -72,7 +74,7 @@ export default function Navbar(props) {
         <div className="absolute h-full w-full lg:backdrop-filter lg:backdrop-blur-lg lg:bg-black/20"></div>
         <div className="flex items-center justify-between w-full h-full lg:px-8 z-10">
           <div className="hidden lg:flex items-center lg:space-x-4 lg:text-base font-black">
-            <img src="/images/General/logo.png" alt="logo" className="h-6"/>
+            <img src={publicUrl + "/images/General/logo.png"} alt="logo" className="h-6"/>
             {leftElements_obj}
           </div>
           <div className="flex flex-grow items-center lg:justify-end flex-row-reverse lg:flex-row lg:space-x-2">
@@ -80,7 +82,7 @@ export default function Navbar(props) {
               <div className="w-[100px] flex flex-grow justify-center">
                 {
                  index < props.notifications.length ? <DynamicIsland key={index + 1} url={notification[index].img} alt={notification[index].name} content={notification[index].content}/> : 
-                 <DynamicIsland url={"/images/General/logo.png"} alt={"logo"} content={"Welcome!"}/>
+                 <DynamicIsland url={publicUrl + "/images/General/logo.png"} alt={"logo"} content={"Welcome!"}/>
                 }
               </div>
               <Battery />

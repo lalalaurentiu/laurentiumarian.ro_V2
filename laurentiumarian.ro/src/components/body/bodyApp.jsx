@@ -2,14 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import File from "../fileApp";
 import Mail from "../mail";
+import FolderApp from "../folderApp";
+
+const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
 
 export default function App(props) {
   let appType = {
     Folder: {
-      src: "/images/General/SVG/folder.svg",
+      src: publicUrl + "/images/General/SVG/folder.svg",
+      app: (name, content, btnRef) => {
+        const component = <FolderApp name={name} app={content} src={publicUrl + "/images/General/SVG/folder.svg"} openBtn={btnRef}/>;
+
+        return ReactDOM.createPortal(
+          component,
+         document.body
+        );
+      },
     },
     File: {
-      src: "/images/General/SVG/file.svg",
+      src: publicUrl + "/images/General/SVG/file.svg",
       app: (name, content, btnRef) => {
         const component = <File name={name} content={content} openBtn={btnRef}/>;
 
@@ -20,7 +31,7 @@ export default function App(props) {
       },
     },
     Mail : {
-      src: "/images/General/SVG/Mail.svg",
+      src: publicUrl + "/images/General/SVG/Mail.svg",
       app: (name, content, btnRef) => {
         const component = <Mail name={name} openBtn={btnRef}/>;
 
@@ -31,7 +42,7 @@ export default function App(props) {
       }
     },
     Phone: {
-      src: "/images/General/SVG/Phone.svg",
+      src: publicUrl + "/images/General/SVG/Phone.svg",
       app:(name, content, btnRef) => {
         if (btnRef.current) {
           btnRef.current.addEventListener("click", () => {
@@ -52,11 +63,11 @@ export default function App(props) {
     } else {
       setSrc(appType[props.type].src);
     }
-  }, [props]);
+  }, [props, appType]);
 
   if (props.type === "App") {
     return (
-      <a target="_blank" href={props.content} className="cursor-pointer flex flex-col items-center justify-end">
+      <a target="_blank" rel="noopener noreferrer" href={props.content} className="cursor-pointer flex flex-col items-center justify-end">
         <img className="h-16 w-16 rounded-lg" src={src} alt={props.name}/>
         <p className="text-center text-xs text-white font-bold">{props.name}</p>
       </a>

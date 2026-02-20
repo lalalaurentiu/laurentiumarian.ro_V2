@@ -6,6 +6,8 @@ import File from "../fileApp";
 import Launchpad from "../launchpad";
 import Mail from "../mail";
 
+const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
+
 export default function Footer(props) {
   const [descriptionApps, setDescriptionApps] = React.useState(props.Description);
 
@@ -17,7 +19,7 @@ export default function Footer(props) {
   const apps = [
     {
       alt: "Finder",
-      src: "/images/General/SVG/Finder.svg",
+      src: publicUrl + "/images/General/SVG/Finder.svg",
       className: "lg:block hidden",
       func: (name, src, btnRef) => {
         
@@ -29,7 +31,7 @@ export default function Footer(props) {
             ">
               <img 
                 className="w-14 h-14 cursor-pointer" 
-                src="/images/General/SVG/folder.svg" 
+                src={publicUrl + "/images/General/SVG/folder.svg"} 
                 alt="Folder" />
               <div className="text-[10px] font-bold">{app.name}</div>
             </div>
@@ -42,22 +44,22 @@ export default function Footer(props) {
             ">
               <img 
                 className="w-14 h-14 cursor-pointer" 
-                src="/images/General/SVG/file.svg" 
+                src={publicUrl + "/images/General/SVG/file.svg"} 
                 alt="File" />
               <div className="text-[10px] font-bold">{"Description"}</div>
             </div>
           )
 
           const appcomponent =(
-              <a key={`app_${app.name}`} href={app.content} target="_blank" className="flex flex-col items-center gap-1">
+              <a key={`app_${app.name}`} href={app.content} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1">
                 <img className="w-14 h-14 cursor-pointe rounded-lg" src={app.img} alt={app.name}/>
                 <p className="text-[10px] font-bold">{app.name}</p>
               </a>
             )
 
           const githubcomponent =(
-            <a key={`github_${app.name}`} href={app.code} target="_blank" className="flex flex-col items-center gap-1">
-              <img className="w-14 h-14 cursor-pointe rounded-lg" src={"/images/General/github.png"} alt={"GitHub"}/>
+            <a key={`github_${app.name}`} href={app.code} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1">
+              <img className="w-14 h-14 cursor-pointe rounded-lg" src={publicUrl + "/images/General/github.png"} alt={"GitHub"}/>
               <p className="text-[10px] font-bold">{"Code"}</p>
             </a>
           )
@@ -69,7 +71,7 @@ export default function Footer(props) {
               [appcomponent, null],
               [githubcomponent, null]
             ]
-          } name={app.name} src={"/images/General/SVG/folder.svg"} openBtn={btn} className={"z-40"}/>
+          } name={app.name} src={publicUrl + "/images/General/SVG/folder.svg"} openBtn={btn} className={"z-40"}/>
         ]
         }); 
 
@@ -83,7 +85,7 @@ export default function Footer(props) {
     },
     {
       alt: "Launchpad",
-      src: "/images/General/Launchpad.png",
+      src: publicUrl + "/images/General/Launchpad.png",
       className: "lg:block hidden",
       func: (name, src, btnRef) => {
         const component = <Launchpad apps={props.LaunchPad} openBtn={btnRef}/>;
@@ -96,7 +98,7 @@ export default function Footer(props) {
     },
     {
       alt: "Phone",
-      src: "/images/General/SVG/Phone.svg",
+      src: publicUrl + "/images/General/SVG/Phone.svg",
       className: "lg:hidden block",
       func:(name, content, btnRef) => {
         if (btnRef.current) {
@@ -108,7 +110,7 @@ export default function Footer(props) {
     },
     {
       alt: "Mail",
-      src: "/images/General/SVG/Mail.svg",
+      src: publicUrl + "/images/General/SVG/Mail.svg",
       className: "",
       func:(name, content, btnRef) => {
         const component = <Mail name={"Footer"} openBtn={btnRef}/>;
@@ -121,12 +123,12 @@ export default function Footer(props) {
     },
     {
       alt: "Settings",
-      src: "/images/General/SVG/Settings.svg",
+      src: publicUrl + "/images/General/SVG/Settings.svg",
       className: "",
     },
     {
       alt: "Dashboard",
-      src: "/images/General/Dashboard.webp",
+      src: publicUrl + "/images/General/Dashboard.webp",
       className: "lg:block hidden",
     }
   ];
@@ -143,9 +145,9 @@ export default function Footer(props) {
         <div className="relative z-10 flex justify-center items-center gap-5 p-2">
           {appsList}
           <div className="w-1 h-10 bg-white rounded-full lg:block hidden"></div>
-          <FooterApp alt="Bin" src="/images/General/Bin.png" className={"lg:block hidden"} func={
+          <FooterApp alt="Bin" src={publicUrl + "/images/General/Bin.png"} className={"lg:block hidden"} func={
             (name, content, btnRef) => {
-              const component = <FolderApp name={"Bin"} src={"/images/General/Bin.png"} openBtn={btnRef}/>;
+              const component = <FolderApp name={"Bin"} src={publicUrl + "/images/General/Bin.png"} openBtn={btnRef}/>;
 
               return ReactDOM.createPortal(
                 component,

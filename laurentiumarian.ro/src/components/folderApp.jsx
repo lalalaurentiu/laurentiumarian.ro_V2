@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
+
 export default function FolderApp(props) {
   const [openIndex, setOpenIndex] = React.useState(false);
   const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
@@ -21,7 +23,7 @@ export default function FolderApp(props) {
     setBtnRef(btn);
     } catch (error) {}
     
-  }, [props]);
+  }, [props, handleClick]);
 
   if (btnRef) {
     btnRef.replaceWith(
@@ -52,31 +54,31 @@ export default function FolderApp(props) {
           <div className="text-gray-400 text-xs font-bold">Favourites</div>
           <div className="flex flex-col text-white text-sm font-bold m-2">
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Airdrop.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Airdrop.svg"} alt="Airdrop"/>
               <div>AirDrop</div>
             </div>
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Recents.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Recents.svg"} alt="Recents"/>
               <div>Recents</div>
             </div>
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Aplication.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Aplication.svg"} alt="Applications"/>
               <div>Aplications</div>
             </div>
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Document.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Document.svg"} alt="Documents"/>
               <div>Documents</div>
             </div>
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Desktop.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Desktop.svg"} alt="Desktop"/>
               <div>Desktop</div>
             </div>
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Portofolio.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Portofolio.svg"} alt="Portfolio"/>
               <div>Portofolio</div>
             </div>
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Download.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Download.svg"} alt="Downloads"/>
               <div>Downloads</div>
             </div>
           </div>
@@ -85,11 +87,11 @@ export default function FolderApp(props) {
           <div className="text-gray-400 text-xs font-bold">iCloud</div>
           <div className="flex flex-col text-white text-sm font-bold m-2">
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Icloud.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Icloud.svg"} alt="iCloud"/>
               <div>iCloud</div>
             </div>
             <div className="flex items-center mb-2 gap-2">
-              <img className="w-5 h-5" src="/images/General/SVG/Shared.svg" alt="Airdrop"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/Shared.svg"} alt="Shared"/>
               <div>Shared</div>
             </div>
           </div>
@@ -99,8 +101,8 @@ export default function FolderApp(props) {
       <div className="flex flex-col w-full">
         <div className="hidden lg:flex justify-between items-center p-2 bg-[#3F3837] rounded-tr-lg">
           <div className="flex items-center">
-            <img className="w-5 h-5" src="/images/General/SVG/chevron-left.svg" alt="Back"/>
-            <img className="w-5 h-5" src="/images/General/SVG/chevron-right.svg" alt="Forward"/>
+            <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/chevron-left.svg"} alt="Back"/>
+            <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/chevron-right.svg"} alt="Forward"/>
             <div className="text-white text-sm font-bold ml-2">{props.name}</div>
           </div>
         </div>
@@ -122,10 +124,10 @@ export default function FolderApp(props) {
         <div className="hidden lg:flex justify-between items-center p-2 bg-[#242424] rounded-br-lg border-t-[0.5px] border-gray-600">
           <div className="flex items-center">
             <div className="flex items-center gap-1">
-              <img className="w-5 h-5" src="/images/General/SVG/HDD.png" alt="HDD"/>
+              <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/HDD.png"} alt="HDD"/>
               <div className="text-white text-xs">Macintosh HD</div>
             </div>
-            <img className="w-5 h-5" src="/images/General/SVG/angle-right.svg" alt="angle-right"/>
+            <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/angle-right.svg"} alt="angle-right"/>
             <div className="flex items-center gap-1">
               <img className="w-5 h-5" src={props.src} alt="Folder"/>
               <div className="text-white text-xs">{props.name}</div>

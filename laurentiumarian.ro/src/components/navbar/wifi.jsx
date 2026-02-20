@@ -5,7 +5,7 @@ export default function Wifi() {
   const wifiCell2 = React.useRef(null);
   const wifiCell3 = React.useRef(null);
 
-  const { show, onClick, subsections } = React.useState(false);
+  const { show, subsections } = React.useState(false);
 
   let rondomNumber = Math.floor(Math.random() * 3) + 1;
 
@@ -26,7 +26,7 @@ export default function Wifi() {
       }
     }, 100 * 100);
     return () => clearInterval(interval);
-  }, []);
+  }, [rondomNumber]);
 
   return (
     <div className="w-[20px] flex flex-col justify-center items-center">

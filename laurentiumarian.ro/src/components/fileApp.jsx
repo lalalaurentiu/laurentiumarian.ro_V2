@@ -1,5 +1,7 @@
 import React from "react";
 
+const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
+
 export default function File(props) {
 
   const [openIndex, setOpenIndex] = React.useState(false);
@@ -12,7 +14,7 @@ export default function File(props) {
   React.useEffect(() => {
     const btn = props.openBtn.current.addEventListener("click", handleClick, false);
     setBtnRef(btn);
-  }, [props]);
+  }, [props, handleClick]);
 
   if (btnRef) {
     btnRef.replaceWith(
@@ -31,7 +33,7 @@ export default function File(props) {
           <button className="w-4 h-4 rounded-full bg-green-500 mr-1"></button>
         </div>
         <div className="flex items-center flex-grow justify-center space-x-1">
-          <img className="w-5 h-5" src="/images/General/SVG/file.svg" alt="File"/>
+          <img className="w-5 h-5" src={publicUrl + "/images/General/SVG/file.svg"} alt="File"/>
           <p className="text-xs font-bold text-white">{props.name}.txt</p>
         </div>
       </div>
