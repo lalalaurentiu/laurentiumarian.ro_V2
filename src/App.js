@@ -75,7 +75,7 @@ function App() {
               },
               name: "PeViitor",
               type: "App",
-              img: "http://localhost:8000/static/images/adaptive-icon.png",
+              img: publicUrl + "/images/General/github.png",
               content: "https://peviitor.ro/",
             },
           ],
@@ -92,7 +92,7 @@ function App() {
       Notifications: [
         {
           name: "Bine ai venit!",
-          img: "https://www.shutterstock.com/shutterstock/photos/2036494151/display_1500/stock-vector-waving-hand-gesture-emoji-icon-illustration-sign-hello-and-goodbye-vector-symbol-emoticon-design-2036494151.jpg",
+          img: publicUrl + "/images/General/Siri.png",
           content: "Bine ai venit! Să începem aventura digitală.",
         },
       ],
