@@ -75,7 +75,7 @@ function App() {
               },
               name: "PeViitor",
               type: "App",
-              img: publicUrl + "/images/General/github.png",
+              img: "https://github.com/lalalaurentiu/androidAPP/blob/main/assets/adaptive-icon.png?raw=true",
               content: "https://peviitor.ro/",
             },
           ],
@@ -85,7 +85,8 @@ function App() {
         {
           name: "PeViitor",
           type: "App",
-          img: publicUrl + "/images/General/github.png",
+          img:
+            "https://github.com/lalalaurentiu/androidAPP/blob/main/assets/adaptive-icon.png?raw=true",
           content: "https://peviitor.ro/",
         },
       ],
@@ -100,7 +101,7 @@ function App() {
         {
           name: "PeViitor",
           type: "App",
-          img: publicUrl + "/images/General/github.png",
+          img: "https://github.com/lalalaurentiu/androidAPP/blob/main/assets/adaptive-icon.png?raw=true",
           content: "https://peviitor.ro/",
           description:
             "PeViitor.ro este o platformă românească dedicată centralizării locurilor de muncă disponibile în România, construită ca un motor de căutare modern pentru joburi. Scopul proiectului este simplu: să ofere acces rapid și gratuit la oportunități reale de angajare, fără cont obligatoriu și fără bariere inutile.\r\n\r\nPlatforma agregă anunțuri din multiple surse publice și le organizează într-un mod clar și ușor de filtrat, astfel încât utilizatorii să poată găsi rapid poziții relevante în funcție de oraș, domeniu sau companie. Prin actualizări constante și structurarea eficientă a datelor, PeViitor.ro reduce timpul petrecut căutând joburi pe zeci de site-uri diferite.\r\n\r\nProiectul are la bază o abordare tehnică orientată spre automatizare și eficiență, folosind procese de colectare și actualizare a datelor pentru a menține informațiile cât mai recente. În plus, platforma pune accent pe transparență și acces liber la informație, contribuind la o piață a muncii mai conectată și mai ușor de navigat.\r\n\r\nPe scurt, PeViitor.ro simplifică procesul de căutare a unui job, reunind oportunitățile într-un singur loc și oferind o experiență rapidă, directă și prietenoasă pentru utilizatori.",

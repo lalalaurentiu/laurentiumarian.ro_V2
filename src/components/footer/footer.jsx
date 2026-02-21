@@ -103,7 +103,7 @@ export default function Footer(props) {
       func:(name, content, btnRef) => {
         if (btnRef.current) {
           btnRef.current.addEventListener("click", () => {
-            window.location.href = "tel:+40790570919";
+            window.location.href = "tel:+01234567890"; // Înlocuiește cu numărul de telefon dorit
           });
         }
       }
