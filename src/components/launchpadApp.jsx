@@ -4,7 +4,7 @@ import File from "./fileApp";
 import Mail from "./mail";
 import FolderApp from "./folderApp";
 
-const publicUrl = process.env.PUBLIC_URL || '/';
+const publicUrl = process.env.PUBLIC_URL || '';
 
 export default function App(props) {
   const appType = useMemo(() => ({

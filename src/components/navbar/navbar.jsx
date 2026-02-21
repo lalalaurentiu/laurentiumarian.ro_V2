@@ -8,7 +8,7 @@ import Notification from "../notifications";
 import LeftElement from "./leftElement";
 import App from "./navApp";
 
-const publicUrl = process.env.PUBLIC_URL || '/';
+const publicUrl = process.env.PUBLIC_URL || '';
 
 const elements = [
   {

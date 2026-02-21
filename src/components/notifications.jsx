@@ -1,6 +1,6 @@
 import React from "react";
 
-const publicUrl = process.env.PUBLIC_URL || '/';
+const publicUrl = process.env.PUBLIC_URL || '';
 
 export default function Notification(props) {
   const child = React.useRef(null);

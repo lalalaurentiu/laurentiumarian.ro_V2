@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 
-const publicUrl = process.env.PUBLIC_URL || '/';
+const publicUrl = process.env.PUBLIC_URL || '';
 
 export default function File(props) {
 

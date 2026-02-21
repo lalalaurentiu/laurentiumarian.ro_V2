@@ -6,7 +6,7 @@ import File from "../fileApp";
 import Launchpad from "../launchpad";
 import Mail from "../mail";
 
-const publicUrl = process.env.PUBLIC_URL || '/';
+const publicUrl = process.env.PUBLIC_URL || '';
 
 export default function Footer(props) {
   const [descriptionApps, setDescriptionApps] = React.useState(props.Description);

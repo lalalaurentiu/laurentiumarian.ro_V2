@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import ReactDOM from "react-dom";
 
-const publicUrl = process.env.PUBLIC_URL || '/';
+const publicUrl = process.env.PUBLIC_URL || '';
 
 export default function FolderApp(props) {
   const [openIndex, setOpenIndex] = React.useState(false);
