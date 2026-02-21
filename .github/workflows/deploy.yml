@@ -28,14 +28,12 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-          cache-dependency-path: laurentiumarian.ro/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        working-directory: laurentiumarian.ro
         run: npm ci
 
       - name: Build
-        working-directory: laurentiumarian.ro
         run: npm run build
 
       - name: Setup Pages
@@ -44,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: laurentiumarian.ro/build
+          path: build
 
       - name: Deploy to GitHub Pages
         id: deployment

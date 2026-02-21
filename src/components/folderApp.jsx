@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import ReactDOM from "react-dom";
 
 const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
@@ -11,16 +11,21 @@ export default function FolderApp(props) {
   const [folder, setFolder] = React.useState(props.app);
   React.useEffect(() => {
     setFolder(props.app);
-  }, [props]);
+  }, [props.app]);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setOpenIndex(!openIndex);
-};
+}, [openIndex]);
 
   React.useEffect(() => {
     try {
       const btn = props.openBtn.current.addEventListener("click", handleClick, false);
     setBtnRef(btn);
+    return () => {
+      if (props.openBtn.current) {
+        props.openBtn.current.removeEventListener("click", handleClick, false);
+      }
+    };
     } catch (error) {}
     
   }, [props, handleClick]);

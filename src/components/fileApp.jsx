@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
 
@@ -7,13 +7,18 @@ export default function File(props) {
   const [openIndex, setOpenIndex] = React.useState(false);
   const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setOpenIndex(!openIndex);
-  };
+  }, [openIndex]);
 
   React.useEffect(() => {
     const btn = props.openBtn.current.addEventListener("click", handleClick, false);
     setBtnRef(btn);
+    return () => {
+      if (props.openBtn.current) {
+        props.openBtn.current.removeEventListener("click", handleClick, false);
+      }
+    };
   }, [props, handleClick]);
 
   if (btnRef) {

@@ -33,7 +33,7 @@ function App() {
   // const url = 'https://dev.laurentiumarian.ro/api/';
   // const url = 'http://localhost:8000/api/'; // URL-ul API-ului tău
   // const [data, setData] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(false); // Adăugăm un starea pentru încărcare
+  const [isLoading] = React.useState(false); // Adăugăm un starea pentru încărcare
 
   // React.useEffect(() => {
   //   fetch(url)
@@ -92,7 +92,7 @@ function App() {
       Notifications: [
         {
           name: "Bine ai venit!",
-          img: null,
+          img: "https://www.shutterstock.com/shutterstock/photos/2036494151/display_1500/stock-vector-waving-hand-gesture-emoji-icon-illustration-sign-hello-and-goodbye-vector-symbol-emoticon-design-2036494151.jpg",
           content: "Bine ai venit! Să începem aventura digitală.",
         },
       ],

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactDOM from "react-dom";
 import File from "./fileApp";
 import Mail from "./mail";
@@ -7,7 +7,7 @@ import FolderApp from "./folderApp";
 const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
 
 export default function App(props) {
-  let appType = {
+  const appType = useMemo(() => ({
     Folder: {
       src: publicUrl + "/images/General/SVG/folder.svg",
       app: (name, content, btnRef) => {
@@ -51,9 +51,9 @@ export default function App(props) {
         }
       }
     },
-  };
+  }), []);
 
-  const [src, setSrc] = React.useState(props);
+  const [src, setSrc] = React.useState(props.type === "App" ? props.src : appType[props.type]?.src);
   const btnRef = React.useRef();
 
   React.useEffect(() => {
@@ -63,7 +63,7 @@ export default function App(props) {
     } else {
       setSrc(appType[props.type].src);
     }
-  }, [props, appType]);
+  }, [props.type, props.src, appType]);
 
   if (props.type === "App") {
     return (
