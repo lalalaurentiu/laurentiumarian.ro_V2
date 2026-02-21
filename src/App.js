@@ -6,7 +6,7 @@ import Body from "./components/body/body";
 import Footer from "./components/footer/footer";
 
 function App() {
-  const publicUrl = process.env.PUBLIC_URL || "/laurentiumarian.ro_V2";
+  const publicUrl = process.env.PUBLIC_URL || "/";
   const [wallpaper, setWallpaper] = React.useState(
     publicUrl + "/images/Mobile/Wallpapers/Wallpaper_mobile.webp",
   );

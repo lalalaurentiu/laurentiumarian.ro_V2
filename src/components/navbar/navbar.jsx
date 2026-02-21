@@ -8,7 +8,7 @@ import Notification from "../notifications";
 import LeftElement from "./leftElement";
 import App from "./navApp";
 
-const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
+const publicUrl = process.env.PUBLIC_URL || '/';
 
 const elements = [
   {

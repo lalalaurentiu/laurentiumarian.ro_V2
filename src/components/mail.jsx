@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 
-const publicUrl = process.env.PUBLIC_URL || '/laurentiumarian.ro_V2';
+const publicUrl = process.env.PUBLIC_URL || '/';
 
 export default function Mail(props) {
   const [openIndex, setOpenIndex] = React.useState(false);
