@@ -4,6 +4,7 @@ import intro from "./components/intro";
 import Navbar from "./components/navbar/navbar";
 import Body from "./components/body/body";
 import Footer from "./components/footer/footer";
+import SEOMeta from "./components/SEOMeta";
 
 function App() {
   const publicUrl = process.env.PUBLIC_URL || "";
@@ -116,6 +117,7 @@ function App() {
       className="App overflow-x-hidden w-full h-full flex flex-col"
       style={{ backgroundImage: `url(${wallpaper})`, backgroundSize: "cover" }}
     >
+      <SEOMeta />
       {intro()}
 
       {isLoading ? (

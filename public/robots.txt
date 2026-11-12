@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://laurentiumarian.ro/sitemap.xml
+
+# Disallow admin/private paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/

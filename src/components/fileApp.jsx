@@ -1,8 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
+import { useSEO } from "../context/SEOContext";
 
 const publicUrl = process.env.PUBLIC_URL || '';
 
 export default function File(props) {
+  const { setPageSEO, resetSEO } = useSEO();
 
   const [openIndex, setOpenIndex] = React.useState(false);
   const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
@@ -10,6 +12,18 @@ export default function File(props) {
   const handleClick = useCallback(() => {
     setOpenIndex(!openIndex);
   }, [openIndex]);
+
+  useEffect(() => {
+    if (openIndex) {
+      if (props.name === "About Me") {
+        setPageSEO("about");
+      } else if (props.name === "Description" && props.content && props.content.includes("PeViitor")) {
+        setPageSEO("peviitor");
+      }
+    } else {
+      resetSEO();
+    }
+  }, [openIndex, props.name, props.content, setPageSEO, resetSEO]);
 
   React.useEffect(() => {
     const btn = props.openBtn.current.addEventListener("click", handleClick, false);

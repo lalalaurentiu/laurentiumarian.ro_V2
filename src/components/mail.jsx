@@ -1,14 +1,25 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
+import { useSEO } from "../context/SEOContext";
 
 const publicUrl = process.env.PUBLIC_URL || '';
 
 export default function Mail(props) {
+  const { setPageSEO, resetSEO } = useSEO();
+
   const [openIndex, setOpenIndex] = React.useState(false);
   const [btnRef, setBtnRef] = React.useState(props.openBtn.current);
 
   const handleClick = useCallback(() => {
     setOpenIndex(!openIndex);
-}, [openIndex]);
+  }, [openIndex]);
+
+  useEffect(() => {
+    if (openIndex) {
+      setPageSEO("contact");
+    } else {
+      resetSEO();
+    }
+  }, [openIndex, setPageSEO, resetSEO]);
 
   React.useEffect(() => {
     const btn = props.openBtn.current.addEventListener("click", handleClick, false);
@@ -59,8 +70,7 @@ export default function Mail(props) {
         </div>
 
         <div className="flex items-center justify-between border-b-[0.5px] border-gray-400 space-x-2 ml-4">
-          <label htmlFor={`${props.name}_email`}
-           className="text-gray-400">From:</label>
+          <label htmlFor={`${props.name}_email`} className="text-gray-400">From:</label>
           <input id={`${props.name}_email`} type="email" required placeholder="Your@email.com" className="w-full h-8 bg-transparent focus:outline-none text-white text-sm font-bold"/>
         </div>
 

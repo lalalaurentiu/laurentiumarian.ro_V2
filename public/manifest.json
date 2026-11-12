@@ -1,6 +1,7 @@
 {
   "short_name": "Laurentiu Marian",
-  "name": "Laurentiu Marian",
+  "name": "Laurentiu Marian - Software Developer",
+  "description": "Software developer passionate about technology. Expert in Python, Django, JavaScript, React, Next.js, Node.js, React Native, and AI integration.",
   "icons": [
     {
       "src": "favicon/favicon.ico",
@@ -10,16 +11,19 @@
     {
       "src": "favicon/android-chrome-192x192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "favicon/android-chrome-512x512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     },
     {
       "src": "favicon/apple-touch-icon.png",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "favicon/favicon-16x16.png",
@@ -32,8 +36,36 @@
       "sizes": "32x32"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait-primary",
+  "theme_color": "#1a1a1a",
+  "background_color": "#1a1a1a",
+  "scope": "/",
+  "lang": "ro",
+  "categories": ["technology", "developer", "portfolio"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "About Me",
+      "short_name": "About",
+      "description": "Learn more about Laurentiu Marian",
+      "url": "/about",
+      "icons": [{ "src": "favicon/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View projects by Laurentiu Marian",
+      "url": "/projects",
+      "icons": [{ "src": "favicon/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with Laurentiu Marian",
+      "url": "/contact",
+      "icons": [{ "src": "favicon/android-chrome-192x192.png", "sizes": "192x192" }]
+    }
+  ]
 }
